@@ -38,18 +38,18 @@ function App() {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <h1 style={{ textAlign: 'center' }}>Loading...</h1>
   };
   if (isError) {
-    return <h1>Errror....</h1>
+    return <h1 style={{ textAlign: 'center' }}>Errror...</h1>
   };
   return (
     <div className="App">
       <h1>Planets Directory</h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
-        {(data && data.length > 0) ? data?.map((ele, index) =>
-          <PlanetCard key={index} {...ele} />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', width: '90%', margin: 'auto' }}>
+        {(data && data.length > 0) ? data?.map((planet, index) =>
+          <PlanetCard key={index} {...planet} />
         ) : null}
       </div>
 
