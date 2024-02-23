@@ -10,9 +10,11 @@ const PlanetCard = ({ name, climate, population, terrain, residents }) => {
             <p>Terrain: {terrain}</p>
             <div>
                 <h4>Residents: {residents.length}</h4>
-                {(residents && residents.length > 0) ? residents?.map((residentUrl, index) =>
-                    <ResidentCard key={index} residentUrl={residentUrl} />
-                ) : null}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '2px' }}>
+                    {(residents && residents.length > 0) ? residents?.map((residentUrl, index) =>
+                        <ResidentCard key={index} residentUrl={residentUrl} index={index} />
+                    ) : null}
+                </div>
             </div>
         </div>
     );

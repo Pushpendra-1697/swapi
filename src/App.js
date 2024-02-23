@@ -37,27 +37,27 @@ function App() {
     setPage(value);
   };
 
-  if (isLoading) {
-    return <h1 style={{ textAlign: 'center' }}>Loading...</h1>
-  };
   if (isError) {
     return <h1 style={{ textAlign: 'center' }}>Errror...</h1>
   };
   return (
     <div className="App">
-      <h1>Planets Directory</h1>
+      <h1>Planets Directory ❤️</h1>
+      {isLoading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> :
+        <>
+          <div className='planet'>
+            {(data && data.length > 0) ? data?.map((planet, index) =>
+              <PlanetCard key={index} {...planet} />
+            ) : null}
+          </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', width: '90%', margin: 'auto' }}>
-        {(data && data.length > 0) ? data?.map((planet, index) =>
-          <PlanetCard key={index} {...planet} />
-        ) : null}
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-        <button style={{ borderRadius: '5px', padding: '10px 14px' }} disabled={page <= 1} onClick={() => handlePageChange(-1)}>PRE</button>
-        <button style={{ borderRadius: '5px', padding: '6px 10px', fontSize: '22px', color: 'red' }} disabled>{page}</button>
-        <button style={{ borderRadius: '5px', padding: '10px' }} disabled={page >= Math.floor(totalPages / 10)} onClick={() => handlePageChange(1)}>NEXT</button>
-      </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+            <button style={{ borderRadius: '5px', padding: '10px 14px' }} disabled={page <= 1} onClick={() => handlePageChange(-1)}>PRE</button>
+            <button style={{ borderRadius: '5px', padding: '6px 10px', fontSize: '22px', color: 'red' }} disabled>{page}</button>
+            <button style={{ borderRadius: '5px', padding: '10px' }} disabled={page >= Math.floor(totalPages / 10)} onClick={() => handlePageChange(1)}>NEXT</button>
+          </div>
+        </>
+      }
     </div>
   );
 }

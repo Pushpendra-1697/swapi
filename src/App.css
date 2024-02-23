@@ -37,7 +37,48 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+.planet {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width:1200px) {
+  .planet {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    width: 92%;
+  }
+}
+
+@media (max-width: 767px) {
+  .planet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 93%;
+  }
+}
+
+@media (max-width: 480px) {
+  .planet {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    width: 92%;
+  }
+}
+
+@media (max-width:360px) {
+  .planet {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+    width: 89%;
   }
 }
