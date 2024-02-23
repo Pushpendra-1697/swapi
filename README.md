@@ -30,7 +30,7 @@ React (JSX Syntax), Fetch for handling asynchronous requests, Standard React com
 ## PORT Used :
 
 ```bash
-    3000   ----> For Frontend
+    3000
 ```
 ## Some Project Screenshots :
 ### A) For Computer Screen:
